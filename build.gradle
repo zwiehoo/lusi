@@ -1,0 +1,28 @@
+group 'lusi'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+mainClassName = 'lusi.App'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.lucene', name: 'lucene-core', version: '3.3.0'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'lusi.App'
+    }
+
+    baseName = project.name + '-all'
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
