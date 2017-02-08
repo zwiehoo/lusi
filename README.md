@@ -26,6 +26,7 @@ Output
  - docCount - total number of documents within segment
  - delCount - number of deleted documents within segment
 
+
         name=_23z5	sizeWithDocStores=123M	sizeWoDocStores=56M	docCount=43555	delCount=25400
         name=_23x7	sizeWithDocStores=77M	sizeWoDocStores=35M	docCount=26800	delCount=22300
         name=_241x	sizeWithDocStores=78M	sizeWoDocStores=36M	docCount=27245	delCount=0
