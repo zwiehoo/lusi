@@ -10,12 +10,12 @@ If you want to run it on newer index formats try to bump Lucene version in *buil
 How to build
 ============
 
-./gradlew clean build
+    ./gradlew clean build
 
 How to run
 ==========
 
-    $ java -jar build/libs/segmentinfo-all-1.0-SNAPSHOT.jar <path to your index directory>
+    $ ./lusi.sh <path to your index directory>
 
 Output
 ======
