@@ -17,7 +17,9 @@ public class App {
 
     private static void checkArgs(final String[] args) {
         if (args.length < 1) {
-            System.out.println("Usage:\n$ java -jar build/libs/segmentinfo-all-1.0-SNAPSHOT.jar <path to your index directory>");
+            System.out.println("Usage:\n$ sh lusi.sh <path to your index directory>");
+            System.out.println("or...");
+            System.out.println("$ sh lusi.sh <path to your index directory> diag");
             System.exit(1);
         }
     }

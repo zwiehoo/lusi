@@ -20,9 +20,21 @@ task fatJar(type: Jar) {
         attributes 'Main-Class': 'lusi.App'
     }
 
-    baseName = project.name + '-all'
+    baseName = 'lusi'
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
+
     with jar
+
+    doLast {
+        copy {
+            from 'build/libs/lusi-1.0-SNAPSHOT.jar'
+            into 'bin/'
+        }
+    }
+}
+
+build {
+    dependsOn fatJar
 }

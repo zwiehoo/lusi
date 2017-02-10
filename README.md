@@ -10,7 +10,7 @@ If you want to run it on newer index formats try to bump Lucene version in *buil
 How to build
 ============
 
-./gradlew clean fatJar
+./gradlew clean build
 
 How to run
 ==========
