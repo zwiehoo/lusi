@@ -8,7 +8,7 @@ import java.io.IOException;
 
 class Lusi {
     private static final long MEG = 1024 * 1024;
-    private static final String SEGMENT_INFO_FORMAT = "name=%s\tsizeWithDocStores=%dM\tsizeWoDocStores=%dM\tdocCount=%d\tdelCount=%d";
+    private static final String SEGMENT_INFO_FORMAT = "segment=%s\tsizeWithDocStores=%dM\tsizeWithoutDocStores=%dM\tdocCount=%d\tdelCount=%d";
     private final String indexPath;
     private SegmentInfos si;
 
@@ -24,6 +24,7 @@ class Lusi {
     }
 
     void printSegmentInfo() {
+        System.out.println("\nSegment sizing:\n");
         si.iterator().forEachRemaining(segment -> {
             try {
                 String info = String.format(
@@ -42,8 +43,16 @@ class Lusi {
 
     void printDiagnostics() {
         System.out.println("\nDiagnostics:\n");
+        si.iterator().forEachRemaining(segment -> System.out.println("segment=" + segment.name + "\t" + segment.getDiagnostics()));
+    }
+
+    void printFiles() {
+        System.out.println("\nFiles:\n");
         si.iterator().forEachRemaining(segment -> {
-            System.out.println(segment.name + "\t" + segment.getDiagnostics());
+            try {
+                System.out.println("segment=" + segment.name + "\t" + segment.files());
+            } catch (IOException e) {
+            }
         });
     }
 }

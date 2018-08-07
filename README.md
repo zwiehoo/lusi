@@ -22,7 +22,7 @@ Output
 
  - name - segment name
  - sizeWithDocStores - segment size in megabytes, including document stores
- - sizeWoDocStores - segment size in megabytes, without document stores
+ - sizeWithoutdiaDocStores - segment size in megabytes, without document stores
  - docCount - total number of documents within segment
  - delCount - number of deleted documents within segment
 
@@ -47,30 +47,3 @@ Output
         name=_246u	sizeWithDocStores=1M	sizeWoDocStores=1M	docCount=300	delCount=0
         name=_246v	sizeWithDocStores=0M	sizeWoDocStores=0M	docCount=36	delCount=0
         
-Diagnostics
-===========
-
-If you run Lusi with *diag* parameter in the end it will produce Lucene diagnostic output per segment:
-
-    $ java -jar build/libs/segmentinfo-all-1.0-SNAPSHOT.jar <path to your index directory> diag
-    
-    _23z5	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _23x7	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _241x	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _244q	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _2450	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _245a	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _245k	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _244z	{os=Linux, java.vendor=Oracle Corporation, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=flush, os.version=3.2.0-23-generic}
-    _246e	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _245u	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _2464	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _246o	{os=Linux, java.vendor=Oracle Corporation, optimize=false, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=merge, mergeFactor=10, os.version=3.2.0-23-generic}
-    _246p	{os=Linux, java.vendor=Oracle Corporation, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=flush, os.version=3.2.0-23-generic}
-    _246q	{os=Linux, java.vendor=Oracle Corporation, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=flush, os.version=3.2.0-23-generic}
-    _246r	{os=Linux, java.vendor=Oracle Corporation, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=flush, os.version=3.2.0-23-generic}
-    _246s	{os=Linux, java.vendor=Oracle Corporation, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=flush, os.version=3.2.0-23-generic}
-    _246t	{os=Linux, java.vendor=Oracle Corporation, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=flush, os.version=3.2.0-23-generic}
-    _246u	{os=Linux, java.vendor=Oracle Corporation, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=flush, os.version=3.2.0-23-generic}
-    _246v	{os=Linux, java.vendor=Oracle Corporation, java.version=1.8.0_121, lucene.version=3.3.0 exported - 2014-09-03 04:10:54, os.arch=amd64, source=flush, os.version=3.2.0-23-generic}
-    
