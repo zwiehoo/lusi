@@ -1,5 +1,5 @@
 group 'lusi'
-version '1.1-SNAPSHOT'
+version '1.2-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'application'
@@ -29,7 +29,7 @@ task fatJar(type: Jar) {
 
     doLast {
         copy {
-            from 'build/libs/lusi-1.1-SNAPSHOT.jar'
+            from 'build/libs/lusi-1.2-SNAPSHOT.jar'
             into 'bin/'
         }
     }

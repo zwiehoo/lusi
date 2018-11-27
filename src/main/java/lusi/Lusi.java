@@ -1,26 +1,55 @@
 package lusi;
 
+import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.SegmentInfos;
+import org.apache.lucene.index.Term;
+import org.apache.lucene.index.TermEnum;
 import org.apache.lucene.store.FSDirectory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 class Lusi {
     private static final long MEG = 1024 * 1024;
     private static final String SEGMENT_INFO_FORMAT = "segment=%s\tsizeWithDocStores=%dM\tsizeWithoutDocStores=%dM\tdocCount=%d\tdelCount=%d";
     private final String indexPath;
     private SegmentInfos si;
+    private FSDirectory directory;
 
     Lusi(final String indexPath) {
         this.indexPath = indexPath;
     }
 
     Lusi init() throws IOException {
-        FSDirectory directory = FSDirectory.open(new File(indexPath));
+        directory = FSDirectory.open(new File(indexPath));
+
         si = new SegmentInfos();
         si.read(directory);
+
         return this;
+    }
+
+    public void dumpTerms() throws IOException {
+        final IndexReader reader = IndexReader.open(directory);
+        final TermEnum terms = reader.terms();
+
+        Map<String, Integer> fields = new HashMap<>();
+        while (terms.next()) {
+            final Term term = terms.term();
+            fields.putIfAbsent(term.field(), 1);
+            fields.computeIfPresent(term.field(), (key, value) -> value + 1);
+        }
+
+        System.out.println("Unique term count: " + fields.size());
+        System.out.println("List of terms with number of unique values: \n");
+
+        fields.forEach((key, value) -> {
+            System.out.println(key + ": " + value);
+        });
     }
 
     void printSegmentInfo() {
